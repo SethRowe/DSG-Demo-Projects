@@ -1,4 +1,4 @@
-﻿using DSG.NateApi.Demo.BLL.Legacy.Interfaces;
+﻿using DSG.NateApi.Demo.BLL.Interfaces;
 
 namespace DSG.NateApi.Demo.BLL.Legacy.Wrappers
 {

@@ -1,5 +1,4 @@
 ﻿using DSG.NateApi.Demo.BLL.Interfaces;
-using DSG.NateApi.Demo.BLL.Legacy.Interfaces;
 using DSG.NateApi.Demo.DAL.Interfaces;
 
 namespace DSG.NateApi.Demo.BLL.Managers
@@ -19,7 +18,7 @@ namespace DSG.NateApi.Demo.BLL.Managers
 
         public void DoSomeWork()
         {
-            throw new System.NotImplementedException();
+            // Do some work
         }
     }
 }

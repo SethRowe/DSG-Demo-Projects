@@ -1,4 +1,4 @@
-﻿namespace DSG.NateApi.Demo.BLL.Legacy.Interfaces
+﻿namespace DSG.NateApi.Demo.BLL.Interfaces
 {
     public interface ILegacyManager
     {
