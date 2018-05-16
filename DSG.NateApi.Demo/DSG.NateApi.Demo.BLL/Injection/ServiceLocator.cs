@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
+using Autofac;
+using DSG.NateApi.Demo.BLL.Injection;
 using DSG.NateApi.Demo.BLL.Managers;
 using DSG.NateApi.Demo.DAL.Dapper;
-using Microsoft.Practices.Unity;
 
 namespace DSG.NateApi.Demo.BLL
 {
@@ -12,43 +13,46 @@ namespace DSG.NateApi.Demo.BLL
 
         This class is for use by OUTSIDE callers and LEGACY business logic components ONLY.
                                  *******             ******                           ****
-
+     
         New classes should follow the Dependency Injection pattern and NOT USE THIS CLASS
                                                                        ******************
+      
+        =============
+          ALSO NOTE
+        =============
+
+        For outside consumers using Autofac, they can ignore this class and instead use the 
+        Injection.AutofacModule (in conjuction with builder.RegisterModule(...)) to consume
+        our libraries from within their Autofac container.
+
     */
 
     public static class ServiceLocator
     {
         public static T Get<T>()
         {
-            return UnityContainer.Resolve<T>();
+            return Container.Resolve<T>();
         }
 
-        private static UnityContainer _unityContainer;
-        private static UnityContainer UnityContainer
+        private static IContainer _container;
+        private static IContainer Container
         {
             get
             {
-                if (_unityContainer == null)
+                if (_container == null)
                     BuildUnityContainer();
 
-                return _unityContainer;
+                return _container;
             }
         }
 
         private static void BuildUnityContainer()
         {
-            _unityContainer = new UnityContainer();
+            var builder = new ContainerBuilder();
 
-            var bllAssembly = Assembly.GetAssembly(typeof(CustomerManager));
-            var dalAssembly = Assembly.GetAssembly(typeof(DapperRepository));
+            builder.RegisterModule(new AutofacModule());
 
-            _unityContainer.RegisterTypes(
-                AllClasses.FromAssemblies(bllAssembly, dalAssembly),
-                WithMappings.FromAllInterfaces,
-                WithName.Default,
-                WithLifetime.Transient
-            );
+            _container = builder.Build();
         }
     }
 }

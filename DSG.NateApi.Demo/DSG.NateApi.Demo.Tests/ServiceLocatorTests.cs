@@ -1,7 +1,7 @@
 ﻿using System.Net;
+using Autofac.Core.Registration;
 using DSG.NateApi.Demo.BLL;
 using DSG.NateApi.Demo.BLL.Interfaces;
-using DSG.NateApi.Demo.BLL.Legacy.Interfaces;
 using DSG.NateApi.Demo.BLL.Legacy.Wrappers;
 using DSG.NateApi.Demo.BLL.Managers;
 using DSG.NateApi.Demo.BLL.Utilities;
@@ -9,7 +9,6 @@ using DSG.NateApi.Demo.DAL.Dapper;
 using DSG.NateApi.Demo.DAL.Interfaces;
 using DSG.NateApi.Demo.DAL.Legacy.Interfaces;
 using DSG.NateApi.Demo.DAL.Legacy.Wrappers;
-using Microsoft.Practices.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DSG.NateApi.Demo.Tests
@@ -68,7 +67,7 @@ namespace DSG.NateApi.Demo.Tests
             // I picked ICertificatePolicy at random from Intellisense. It's not one of
             // our types in the BLL or DAL, so the ServiceLocator should fail to resolve it.
 
-            Assert.ThrowsException<ResolutionFailedException>(() => ServiceLocator.Get<ICertificatePolicy>());
+            Assert.ThrowsException<ComponentNotRegisteredException>(() => ServiceLocator.Get<ICertificatePolicy>());
         }
     }
 }
