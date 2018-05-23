@@ -100,7 +100,6 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Products_GetById.feature.cs</LastGenOutput>
     </None>
-    <None Include="README.md" />
     <None Include="runtests.cmd" />
     <None Include="SpecRunTestProfile.xsd">
       <SubType>Designer</SubType>

@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSG.SpecFlow.Demo.Api", "DS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSG.SpecFlow.Demo.Specification", "DSG.SpecFlow.Demo.Specification\DSG.SpecFlow.Demo.Specification.csproj", "{D9FC4067-2D5D-4BA7-A32B-B5DBBF7A9F41}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D70E7687-E3BC-4299-93A7-8213E262C275}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
