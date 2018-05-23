@@ -8,7 +8,8 @@ namespace DSG.SpecFlow.Demo.Specification.Helpers
 {
     public static class HttpClientHelper
     {
-        public static string BaseUrl = "http://localhost.fiddler:62375/";
+        //public static string BaseUrl = "http://localhost.fiddler:62375/";
+        public static string BaseUrl = "http://localhost:62375/";
 
         public static ApiResponse GET(string url)
         {
