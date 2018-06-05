@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="row">
+    <div id="product-category" class="col-sm-6 col-lg-3">
+        <h3>Product Category</h3>
+        <select class="form-control">
+            <option>-- Please Select --</option>
+            <option value="1">Empty category one</option>
+            <option value="1">Empty category two</option>
+            <option value="1">Empty category three</option>
+            <option value="4">Category with sub-categories</option>
+        </select>
+    </div>
+    <div id="product-sub-category" class="col-sm-6 col-lg-3" style="display: none;">
+        <h3>Product Sub-Category</h3>
+        <select class="form-control"></select>
+    </div>
+    <div id="product" class="col-sm-6 col-lg-3" style="display: none;">
+        <h3>Product</h3>
+        <select class="form-control"></select>
+    </div>
+    <div id="sub-product" class="col-sm-6 col-lg-3" style="display: none;">
+        <h3>Sub-product</h3>
+        <select class="form-control"></select>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // Load the sub-category dropdown when the category changes
+    $("#product-category select").change(function() {
+        var productId = $(this).val();
+
+        $.ajax({
+                method: "GET",
+                url: "/api/dropdowns/" + productId
+            })
+            .done(function(data) {
+
+                if (!data) {
+                    $("#product-sub-category").hide();
+                    $("#product").hide();
+                    $("#sub-product").hide();
+                } else {
+
+                    var $subCategorySelect = $("#product-sub-category select");
+
+                    $subCategorySelect.find("option").remove();
+                    $subCategorySelect.append("<option></option>");
+
+                    for (var i = 0; i < data.length; i++) {
+                        var item = data[i];
+                        $subCategorySelect.append("<option value=\"" + item.id + "\">" + item.text + "</option>");
+                    }
+
+                    $("#product-sub-category").show();
+                }
+
+            });
+
+    });
+
+    // Load the product and sub-product dropdowns when the sub-category changes
+    $("#product-sub-category select").change(function() {
+        var productId = $(this).val();
+
+        $.ajax({
+                method: "GET",
+                url: "/api/dropdowns/" + productId
+            })
+            .done(function(data) {
+
+                if (!data) {
+                    $("#product").hide();
+                    $("#sub-product").hide();
+                } else {
+
+                    var $productSelect = $("#product select");
+                    var $subProductSelect = $("#sub-product select");
+
+                    $productSelect.find("option").remove();
+                    $subProductSelect.find("option").remove();
+
+                    $productSelect.append("<option></option>");
+                    $subProductSelect.append("<option></option>");
+
+                    var item, i;
+
+                    for (i = 0; i < data.products.length; i++) {
+                        item = data.products[i];
+                        $productSelect.append("<option value=\"" + item.id + "\">" + item.text + "</option>");
+                    }
+
+                    for (i = 0; i < data.subProducts.length; i++) {
+                        item = data.subProducts[i];
+                        $subProductSelect.append("<option value=\"" + item.id + "\">" + item.text + "</option>");
+                    }
+
+                    $("#product").show();
+                    $("#sub-product").show();
+                }
+
+            });
+
+    });
+</script>
