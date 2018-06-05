@@ -7,7 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSG.SpecFlow.Demo.Api", "DS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSG.SpecFlow.Demo.Specification", "DSG.SpecFlow.Demo.Specification\DSG.SpecFlow.Demo.Specification.csproj", "{D9FC4067-2D5D-4BA7-A32B-B5DBBF7A9F41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSG.xUnit.Gherkin.Demo.Tests", "DSG.xUnit.Gherkin.Demo.Tests\DSG.xUnit.Gherkin.Demo.Tests.csproj", "{DAACB342-896E-434B-B9BC-F904AA646964}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D70E7687-E3BC-4299-93A7-8213E262C275}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +26,6 @@ Global
 		{D9FC4067-2D5D-4BA7-A32B-B5DBBF7A9F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9FC4067-2D5D-4BA7-A32B-B5DBBF7A9F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9FC4067-2D5D-4BA7-A32B-B5DBBF7A9F41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAACB342-896E-434B-B9BC-F904AA646964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAACB342-896E-434B-B9BC-F904AA646964}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAACB342-896E-434B-B9BC-F904AA646964}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAACB342-896E-434B-B9BC-F904AA646964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
